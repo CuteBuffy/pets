@@ -5,8 +5,8 @@ export default function Search() {
   const [timeoutId, setTimeoutId] = useState();
   const [textValue, setTextValue] = useState('')
 
-  const [petsData, setPetsData] = useState()
-  const [petsRap, setPetsRap] = useState()
+  const [petsData, setPetsData] = useState(null)
+  const [petsRap, setPetsRap] = useState(null)
 
   const getText = e => {
     const { value } = e.target
@@ -15,21 +15,31 @@ export default function Search() {
 
   useEffect(() => {
     const getPets = async () => {
-      const res = await fetch("/api/collection/Pets")
-      const data = await res.json();
-      setPetsData(data)
-    }
-    getPets()
-  }, [])
+      try {
+        const res = await fetch("/api/collection/Pets");
+        const data = await res.json();
+        setPetsData(data);
+      } catch (error) {
+        console.error("Error fetching pets data:", error);
+      }
+    };
+
+    getPets();
+  }, []);
 
   useEffect(() => {
     const getRap = async () => {
-      const res = await fetch("/api/rap");
-      const data = await res.json();
-      setPetsRap(data)
-    }
+      try {
+        const res = await fetch("/api/rap");
+        const data = await res.json();
+        setPetsRap(data);
+      } catch (error) {
+        console.error("Error fetching rap data:", error);
+      }
+    };
+
     getRap();
-  })
+  }, []);
 
   const handleClick = () => {
     console.log(petsRap)
