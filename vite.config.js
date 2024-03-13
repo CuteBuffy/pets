@@ -6,18 +6,12 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
-      "/petsApi": {
-        target: "https://biggamesapi.io/api/collection/Pets",
+      "/api": {
+        target: "https://biggamesapi.io/api/",
         secure: false,
         changeOrigin: true,
-        rewrite: path => path.replace(/^\/petsApi/, '')
+        rewrite: path => path.replace(/^\/api/, '')
       },
-      "/rapApi": {
-        target: "https://biggamesapi.io/api/rap",
-        secure: false,
-        changeOrigin: true,
-        rewrite: path => path.replace(/^\/rapApi/, '')
-      }
     },
   },
   plugins: [react()],

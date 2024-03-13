@@ -15,7 +15,7 @@ export default function Search() {
 
   useEffect(() => {
     const getPets = async () => {
-      const res = await fetch("/petsApi")
+      const res = await fetch("/api/collection/Pets")
       const data = await res.json();
       setPetsData(data)
     }
@@ -24,7 +24,7 @@ export default function Search() {
 
   useEffect(() => {
     const getRap = async () => {
-      const res = await fetch("/rapApi");
+      const res = await fetch("/api/rap");
       const data = await res.json();
       setPetsRap(data)
     }
