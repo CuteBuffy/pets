@@ -15,7 +15,7 @@ export default function Search() {
 
   useEffect(() => {
     const getPets = async () => {
-      const res = await fetch("https://biggamesapi.io/api/collection/Pets")
+      const res = await fetch("/petsApi")
       const data = await res.json();
       setPetsData(data)
     }
@@ -24,7 +24,7 @@ export default function Search() {
 
   useEffect(() => {
     const getRap = async () => {
-      const res = await fetch("https://biggamesapi.io/api/rap");
+      const res = await fetch("/rapApi");
       const data = await res.json();
       setPetsRap(data)
     }
