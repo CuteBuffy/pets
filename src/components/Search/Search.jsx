@@ -16,28 +16,28 @@ export default function Search() {
   useEffect(() => {
     const getPets = async () => {
       try {
-        const res = await fetch("/api/collection/Pets");
+        const res = await fetch("/api/api/collection/Pets");
         const data = await res.json();
         setPetsData(data);
       } catch (error) {
         console.error("Error fetching pets data:", error);
       }
     };
-
+  
     getPets();
   }, []);
-
+  
   useEffect(() => {
     const getRap = async () => {
       try {
-        const res = await fetch("/api/rap");
+        const res = await fetch("/api/api/rap");
         const data = await res.json();
         setPetsRap(data);
       } catch (error) {
         console.error("Error fetching rap data:", error);
       }
     };
-
+  
     getRap();
   }, []);
 
