@@ -6,16 +6,14 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': {
-        target: 'https://biggamesapi.io/',
-        changeOrigin: true,
-        secure: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
+      // '/api': {
+      //   target: 'https://biggamesapi.io/api',
+      //   changeOrigin: true,
+      //   rewrite: (path) => path.replace(/^\/api/, ''),
+      // },
       '/pets/api': {
         target: 'https://biggamesapi.io/',
         changeOrigin: true,
-        secure: true,
         rewrite: (path) => path.replace(/^\/pets\/api/, '/api'),
       },
     },
