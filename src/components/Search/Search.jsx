@@ -16,28 +16,34 @@ export default function Search() {
   useEffect(() => {
     const getPets = async () => {
       try {
-        const res = await fetch("/pets/api/collection/Pets");
-        const data = await res.json();
+        const res = await fetch("https://biggamesapi.io/api/collection/Pets", {
+          method: "GET",
+          redirect: "follow"
+        });
+        const data = await res.text();
         setPetsData(data);
       } catch (error) {
         console.error("Error fetching pets data:", error);
       }
     };
-  
+
     getPets();
   }, []);
-  
+
   useEffect(() => {
     const getRap = async () => {
       try {
-        const res = await fetch("/pets/api/rap");
-        const data = await res.json();
+        const res = await fetch("https://biggamesapi.io/api/rap", {
+          method: "GET",
+          redirect: "follow"
+        });
+        const data = await res.text();
         setPetsRap(data);
       } catch (error) {
         console.error("Error fetching rap data:", error);
       }
     };
-  
+
     getRap();
   }, []);
 
