@@ -9,11 +9,13 @@ export default defineConfig({
       '/api': {
         target: 'https://biggamesapi.io/',
         changeOrigin: true,
+        secure: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
       '/pets/api': {
         target: 'https://biggamesapi.io/',
         changeOrigin: true,
+        secure: true,
         rewrite: (path) => path.replace(/^\/pets\/api/, '/api'),
       },
     },
